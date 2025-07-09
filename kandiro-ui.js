@@ -130,18 +130,31 @@ function updateSeedsDisplay(pitElement, seedCount) {
         const maxVisualSeeds = isKandiro ? 12 : 8; // Show fewer seeds for visual clarity
         const seedsToShow = Math.min(seedCount, maxVisualSeeds);
         
+        // Get responsive dimensions based on screen size
+        const isMobile = window.innerWidth < 640;
+        
+        // Get actual element dimensions for perfect centering
+        const rect = pitElement.getBoundingClientRect();
+        const elementWidth = isKandiro ? (isMobile ? 70 : 80) : (isMobile ? 60 : 70);
+        const elementHeight = isKandiro ? (isMobile ? 100 : 120) : (isMobile ? 60 : 70);
+        
+        // Calculate perfect center based on actual element size
+        const centerX = elementWidth / 2;
+        const centerY = elementHeight / 2;
+        
+        // Responsive radius and seed offset
+        const radius = isKandiro ? (isMobile ? 16 : 22) : (isMobile ? 10 : 18);
+        const seedOffset = isMobile ? 3 : 6; // Half of seed size for perfect centering
+        
         for (let i = 0; i < seedsToShow; i++) {
             const seed = document.createElement('div');
             seed.className = 'seed';
             
             // Position seeds in a circle or pattern
             const angle = (i / seedsToShow) * 2 * Math.PI;
-            const radius = isKandiro ? 25 : 20; // Smaller radius for smaller pits
-            const centerX = isKandiro ? 40 : 35; // Adjust center for smaller pits
-            const centerY = isKandiro ? 60 : 35; // Adjust center for smaller pits
             
-            const x = centerX + Math.cos(angle) * radius - 6;
-            const y = centerY + Math.sin(angle) * radius - 6;
+            const x = centerX + Math.cos(angle) * radius - seedOffset;
+            const y = centerY + Math.sin(angle) * radius - seedOffset;
             
             seed.style.left = x + 'px';
             seed.style.top = y + 'px';

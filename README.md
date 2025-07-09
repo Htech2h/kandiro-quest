@@ -20,7 +20,7 @@
 
 ## 🚀 Play Now
 
-**[🎮 Play Kandiro Quest Online →](https://your-username.github.io/kandiro-quest)**
+**[🎮 Play Kandiro Quest Online →](https://htech2h.github.io/kandiro-quest/)**
 
 ## 📖 How to Play
 
@@ -103,7 +103,7 @@ Kandiro B                 Kandiro A
 
 ### Local Setup
 ```bash
-git clone https://github.com/your-username/kandiro-quest.git
+git clone https://github.com/htech2h/kandiro-quest.git
 cd kandiro-quest
 ```
 
@@ -154,6 +154,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**🎮 Ready to play? [Start your Kandiro Quest now!](https://your-username.github.io/kandiro-quest)**
+**🎮 Ready to play? [Start your Kandiro Quest now!](https://htech2h.github.io/kandiro-quest/)**
 
 *Made with ❤️ for board game enthusiasts everywhere*
