@@ -1,3 +1,4 @@
+'use strict'
 // UI Game State
 let gameUI = {
     player_A: [4, 4, 4, 4, 4, 4],
@@ -400,7 +401,7 @@ function playB(index, movementPath = []) {
     return { lastPosition, lastSide, dist };
 }
 
-// Capture logic (exactly 2 or 3 seeds) - matches original kandiro.js
+// Capture logic (exactly 2 or 3 seeds)
 function captureBowl(index, currentPlayer) {
     const isPlayerA = currentPlayer === 'A';
     const opponentBoard = isPlayerA ? gameUI.player_B : gameUI.player_A;
@@ -547,13 +548,25 @@ function makeBotMove() {
     
     let maxSeeds = 0;
     let bestMove = -1;
+
+     // do some foward checking.
+    let board = gameUI.player_A;
+    let index = board.indexOf(2);
+    index = index !== -1 ? index : board.indexOf(1);
     
     for (let i = 0; i < 6; i++) {
+        if(index !== -1){
+            if((index + 2 +i)=== gameUI.player_B[i]){
+                makeMove('B',i);
+                return;
+            }
+        }
         if (gameUI.player_B[i] > maxSeeds) {
             maxSeeds = gameUI.player_B[i];
             bestMove = i;
         }
     }
+
     
     if (bestMove !== -1) {
         makeMove('B', bestMove);

@@ -5,6 +5,7 @@ let kandiro_A = 0;
 let player_B = [];
 let kandiro_B = 0;
 
+
 //current player
 let player = "A"
 //seeds
